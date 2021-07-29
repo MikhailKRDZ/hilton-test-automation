@@ -19,6 +19,7 @@ dependencies {
     testImplementation "org.testng:testng:7.1.0"
     testImplementation "org.hamcrest:hamcrest-library:2.2"
     implementation "log4j:log4j:1.2.17"
+    implementation "io.github.bonigarcia:webdrivermanager:3.3.0"
 }
 
 test {
