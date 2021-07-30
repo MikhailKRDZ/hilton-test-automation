@@ -2,19 +2,17 @@ package com.epam.hilton.tests;
 
 import com.epam.hilton.framework.service.IConstant;
 import com.epam.hilton.framework.service.ITestData;
-import com.epam.hilton.framework.service.Rooms;
 import com.epam.hilton.helpers.HomeHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class WebDriverSeleniumTest {
     private WebDriver driver;
-    private final Rooms ROOMS = new Rooms(ITestData.roomsNumber,ITestData.guestsNumber);
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeClass(alwaysRun = true)
     public void login() {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
@@ -33,8 +31,8 @@ public class WebDriverSeleniumTest {
         String result = new HomeHelper(driver)
                 .openPage()
                 .fillSearchForm(ITestData.inputData)
-                .chooseOneRoom(ROOMS)
-                .choosePeriodFromTomorrow(7)
+                .chooseOneRoom(ITestData.guestsNumber)
+                .choosePeriodFromTomorrow(ITestData.periodInDay)
                 .clickFindHotelButton()
                 .chooseRandomViewRatesHotel()
                 .chooseMostExpensiveVariant()

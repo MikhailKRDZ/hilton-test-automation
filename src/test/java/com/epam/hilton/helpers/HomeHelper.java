@@ -1,6 +1,5 @@
 package com.epam.hilton.helpers;
 
-import com.epam.hilton.framework.service.Rooms;
 import com.epam.hilton.helpers.elementshelper.CalendarHelper;
 import com.epam.hilton.helpers.elementshelper.RoomFormHelper;
 import com.epam.hilton.pages.HomePage;
@@ -26,15 +25,11 @@ public class HomeHelper extends AbstractHelper {
         return this;
     }
 
-    public HomeHelper chooseOneRoom(Rooms rooms) {
-        if (rooms.getRoomsNumber() == 1 ){
+    public HomeHelper chooseOneRoom(int guestsNumber) {
         clickFormRoomButton()
         .chooseOneRoom()
-        .chooseAdultGuestsNumber(rooms.getGuestsNumber())
+        .chooseAdultGuestsNumber(guestsNumber)
         .clickCloseButton();
-    } else {
-            throw  new IllegalArgumentException("Wrong rooms number, need 1, actual - " + rooms.getRoomsNumber());
-    }
         log.info("choose required room ");
         return this;
     }
