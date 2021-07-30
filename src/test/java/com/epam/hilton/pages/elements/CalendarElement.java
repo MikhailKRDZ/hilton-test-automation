@@ -31,4 +31,5 @@ public class CalendarElement extends HomePage {
     public void clickCloseCalendarButton() {
         closeCalendarButton.click();
     }
+
 }

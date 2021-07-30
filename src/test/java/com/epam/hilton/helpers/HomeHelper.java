@@ -26,11 +26,16 @@ public class HomeHelper extends AbstractHelper {
         return this;
     }
 
-    public HomeHelper chooseRoom(Rooms rooms) {
+    public HomeHelper chooseOneRoom(Rooms rooms) {
+        if (rooms.getRoomsNumber() == 1 ){
         clickFormRoomButton()
-        .chooseRoomNumber(rooms.getRoomsNumber())
-        .chooseGuestsNumber(rooms.getGuestsNumber())
+        .chooseOneRoom()
+        .chooseAdultGuestsNumber(rooms.getGuestsNumber())
         .clickCloseButton();
+    } else {
+            throw  new IllegalArgumentException("Wrong rooms number, need 1, actual - " + rooms.getRoomsNumber());
+    }
+        log.info("choose required room ");
         return this;
     }
 
@@ -48,7 +53,7 @@ public class HomeHelper extends AbstractHelper {
 
     public CalendarHelper clickCalendarButton() {
         homePage.clickCalendarButton();
-        log.info("click 'calendar button'");
+        log.info("click 'Calendar button'");
         return new CalendarHelper(this.driver);
     }
 
@@ -59,4 +64,5 @@ public class HomeHelper extends AbstractHelper {
                 .clickCloseCalendarButton();
         return this;
     }
+
 }

@@ -35,4 +35,5 @@ public class RoomFormElement extends HomePage {
     public void clickCloseButton() {
         closeButton.click();
     }
+
 }

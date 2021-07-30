@@ -33,7 +33,7 @@ public class WebDriverSeleniumTest {
         String result = new HomeHelper(driver)
                 .openPage()
                 .fillSearchForm(ITestData.inputData)
-                .chooseRoom(ROOMS)
+                .chooseOneRoom(ROOMS)
                 .choosePeriodFromTomorrow(7)
                 .clickFindHotelButton()
                 .chooseRandomViewRatesHotel()

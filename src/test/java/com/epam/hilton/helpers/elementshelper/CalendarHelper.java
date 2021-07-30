@@ -20,20 +20,13 @@ public class CalendarHelper extends HomeHelper {
     }
 
     public CalendarHelper chooseEndPeriodFromTomorrow(int period) {
-        if ( period > 28 || period < 1) {
+        if (period > 28 || period < 1) {
             throw new IllegalArgumentException("period valid from 1 till 28, please enter correct values");
         }
-        String todayId = calendarElement.getTodayId().split("-")[1];
-        long longTime = Long.parseLong(todayId);
-        longTime = longTime + 86400000L * (period + 1);
+        long longTime = Long.parseLong(calendarElement.getTodayId().split("-")[1]) + 86400000L * (period + 1);
         LocalDate localDate = Instant.ofEpochMilli(longTime).atZone(ZoneId.systemDefault()).toLocalDate();
         calendarElement.clickDate(longTime);
         log.info("Choose 'End Period' - " + localDate.toString());
-        return this;
-    }
-
-    private CalendarHelper getTomorrowData(){
-        log.info("Choose 'End Period' - ");
         return this;
     }
 

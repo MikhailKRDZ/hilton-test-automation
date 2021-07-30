@@ -100,14 +100,12 @@ public class PaymentPage extends AbstractPage {
       String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
               + "var elementTop = arguments[0].getBoundingClientRect().top;"
               + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
-
       ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, inputAddress);
       inputAddress.sendKeys(validAddress);
   }
 
     public void chooseFirstDropDownAddress() {
-    new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-        .until(ExpectedConditions.visibilityOf(dropDownFirstAddress));
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.visibilityOf(dropDownFirstAddress));
 
         Actions builder = new Actions(driver);
         builder.moveToElement(dropDownFirstAddress).perform();

@@ -20,4 +20,5 @@ public class UpdateRatesHelper extends AbstractHelper{
         log.info("Click 'Book' button");
         return new PaymentHelper(this.driver);
     }
+
 }

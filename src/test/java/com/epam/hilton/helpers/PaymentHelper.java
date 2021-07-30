@@ -78,17 +78,14 @@ public class PaymentHelper extends AbstractHelper {
      public PaymentHelper inputAddress() {
         paymentPage.inputAddress(ITestData.address);
         paymentPage.chooseFirstDropDownAddress();
-
         log.info("input 'Address'" + ITestData.address);
         return this;
     }
 
     public ReservationConfirmationHelper clickBookReservationButton() {
         paymentPage.clickBookReservationButton();
-        log.info("Click  'Book Reservation Button'");
+        log.info("Click 'Book Reservation Button'");
         return new ReservationConfirmationHelper(this.driver);
     }
-
-
 
 }

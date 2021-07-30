@@ -11,14 +11,15 @@ public class ReservationConfirmationHelper extends AbstractHelper{
         super(driver);
     }
 
-
     public String getTotalForStay() {
       String result = reservationConfirmationPage.getTotalForStay();
         log.info("Get 'Total for stay', price - " + result);
         return result;
     }
+
     @Override
     protected AbstractHelper openPage() {
         return null;
     }
+
 }

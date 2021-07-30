@@ -21,4 +21,5 @@ public class AvailableRoomsHelper  extends AbstractHelper {
     protected AvailableRoomsHelper  openPage() {
         return new AvailableRoomsHelper(driver);
     }
+
 }

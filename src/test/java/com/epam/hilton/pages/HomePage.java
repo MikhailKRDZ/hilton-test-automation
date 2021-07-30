@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class HomePage extends AbstractPage{
     private static final String HOMEPAGE_URL = "https://www.hilton.com/en/";
+    String pagesHeadLocator = "//html[@dir='ltr']";
 
     @FindBy(id = "search-form-query")
     private WebElement searchFormQuery;
@@ -54,9 +55,9 @@ public class HomePage extends AbstractPage{
 
     public void clickFindHotelButton() {
         findHotelButton.click();
-    new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-        .until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//html[@dir='ltr']")));//упал
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(pagesHeadLocator)));
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
+
 }

@@ -22,6 +22,4 @@ public class ReservationConfirmationPage extends AbstractPage{
         return searchFormQuery.getText();
     }
 
-
-
 }
